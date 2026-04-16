@@ -5,7 +5,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ระบบตรวจสอบความพร้อมรถ Emergency & ตารางยาและเวชภัณฑ์</title>
-  <!-- Google Fonts & Bootstrap & Icon -->
   <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
@@ -30,14 +29,14 @@
       --danger-dark: #dc3545;
       --warning: #ffb26b;
       --success: #d1f2ea;
-            --mint-primary: #4dd6a5;
-            --mint-secondary: #3ac7b6;
-            --mint-light: #e0f7f0;
-            --mint-dark: #2a9d8f;
-            --mint-danger: #ffcccb;
-            --mint-danger-dark: #ff6b6b;
-            --mint-warning: #ffd8b1;
-            --mint-success: #c1f7d5;
+      --mint-primary: #4dd6a5;
+      --mint-secondary: #3ac7b6;
+      --mint-light: #e0f7f0;
+      --mint-dark: #2a9d8f;
+      --mint-danger: #ffcccb;
+      --mint-danger-dark: #ff6b6b;
+      --mint-warning: #ffd8b1;
+      --mint-success: #c1f7d5;
     }
     body {
       font-family: 'Kanit', 'Sarabun', sans-serif;
@@ -91,237 +90,140 @@
       text-shadow: 0 2px 8px #fff2;
     }
     .navbar {
-            background-color: var(--mint-primary);
-        }
-        
-        .card {
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-        }
-        
-        .card-header {
-            background-color: var(--mint-secondary);
-            color: white;
-            border-radius: 15px 15px 0 0 !important;
-            padding: 15px 20px;
-        }
-        
-        .table {
-            margin-bottom: 0;
-            font-size: 0.75rem; /* ลดขนาดตัวอักษรในตาราง */
-        }
-        
-        .table th {
-            background-color: var(--mint-light);
-            color: var(--mint-dark);
-            border-color: #e9ecef;
-            font-size: 0.8rem; /* ขนาดตัวอักษรหัวตาราง */
-        }
-        
-.status-expired {
-  background-color: #ff0000 !important; /* สีแดงสด */
-  color: white !important;
-}
-        
-        .status-near-expired {
-            background-color: var(--mint-danger) !important;
-        }
-        
-        .status-warning {
-            background-color: var(--mint-warning) !important;
-        }
-        
-        .status-normal {
-            background-color: var(--mint-success) !important;
-        }
-        
-        .btn-mint {
-            background-color: var(--mint-primary);
-            color: white;
-        }
-        
-        .btn-mint:hover {
-            background-color: var(--mint-dark);
-            color: white;
-        }
-        
-        .action-btn {
-            padding: 4px 8px;
-            margin: 0 2px;
-        }
-        
-        .loading-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(255, 255, 255, 0.8);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-        }
-        
-        .spinner-container {
-            text-align: center;
-        }
-        
-        .modal-header {
-            background-color: var(--mint-secondary);
-            color: white;
-        }
-        
-        .modal-content {
-            border-radius: 15px;
-        }
-        
-        #notification {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 9999;
-            display: none;
-            min-width: 300px;
-            text-align: center;
-            font-size: 1.2rem;
-            padding: 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-        
-        .status-badges {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 10px;
-        }
-        
-        .status-badge {
-            display: flex;
-            align-items: center;
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-size: 0.8rem;
-        }
-        
-        /* ป้องกันการตัดคำในคอลัมน์จำนวนวันที่ใกล้หมดอายุ */
-        .days-column {
-            white-space: nowrap;
-        }
-        
-        /* สไตล์สำหรับ input group ในฟอร์ม */
-        .form-icon {
-            background-color: var(--mint-light);
-            color: var(--mint-dark);
-            border-color: #ced4da;
-        }
-        
-        .form-control:focus {
-            border-color: var(--mint-primary);
-            box-shadow: 0 0 0 0.25rem rgba(77, 214, 165, 0.25);
-        }
-        
-        /* ปรับขนาด badge ในตาราง */
-        .table .badge {
-            font-size: 0.7rem;
-            padding: 0.25rem 0.5rem;
-        }
-        
-        @media (max-width: 768px) {
-            .table-responsive {
-                font-size: 0.7rem; /* ลดขนาดตัวอักษรในตารางสำหรับมือถือ */
-            }
-            
-            .action-btn {
-                padding: 2px 5px;
-                font-size: 0.7rem;
-            }
-            
-            /* อนุญาตให้ตัดคำในสมาร์ทโฟน */
-            .days-column {
-                white-space: normal;
-            }
-            
-            /* ปรับขนาด badge ในตารางสำหรับมือถือ */
-            .table .badge {
-                font-size: 0.65rem;
-                padding: 0.2rem 0.4rem;
-            }
-            
-            /* ปรับขนาดไอคอนในตารางสำหรับมือถือ */
-            .table .bi {
-                font-size: 0.7rem;
-            }
-            
-            /* ปรับขนาดหัวตารางสำหรับมือถือ */
-            .table th {
-                font-size: 0.7rem;
-                padding: 0.4rem;
-            }
-            
-            /* ปรับขนาดเซลล์ในตารางสำหรับมือถือ */
-            .table td {
-                padding: 0.4rem;
-            }
-            
-            /* ปรับขนาดของ status badges สำหรับมือถือ */
-            .status-badges {
-                gap: 5px;
-            }
-            
-            .status-badge {
-                padding: 3px 6px;
-                font-size: 0.7rem;
-            }
-            
-            /* ปรับขนาดของ modal สำหรับมือถือ */
-            .modal-dialog {
-                margin: 0.5rem;
-            }
-            
-            .modal-title {
-                font-size: 1.1rem;
-            }
-            
-            .form-label {
-                font-size: 0.85rem;
-            }
-        }
-        
-        /* สำหรับหน้าจอขนาดเล็กมาก */
-        @media (max-width: 576px) {
-            .table-responsive {
-                font-size: 0.65rem;
-            }
-            
-            .action-btn {
-                padding: 1px 4px;
-                font-size: 0.65rem;
-                margin: 0 1px;
-            }
-            
-            /* ปรับขนาดเซลล์ในตารางสำหรับหน้าจอเล็กมาก */
-            .table td, .table th {
-                padding: 0.3rem;
-            }
-            
-            /* ปรับขนาดของ card header สำหรับหน้าจอเล็กมาก */
-            .card-header {
-                padding: 10px 15px;
-            }
-            
-            .card-header h5 {
-                font-size: 1rem;
-            }
-            
-            /* ปรับขนาดของปุ่มเพิ่มรายการสำหรับหน้าจอเล็กมาก */
-            #addNewItem {
-                font-size: 0.7rem;
-                padding: 0.2rem 0.4rem;
-            }
-        }
+        background-color: var(--mint-primary);
+    }
+    .card {
+        border-radius: 15px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+    }
+    .card-header {
+        background-color: var(--mint-secondary);
+        color: white;
+        border-radius: 15px 15px 0 0 !important;
+        padding: 15px 20px;
+    }
+    .table {
+        margin-bottom: 0;
+        font-size: 0.75rem;
+    }
+    .table th {
+        background-color: var(--mint-light);
+        color: var(--mint-dark);
+        border-color: #e9ecef;
+        font-size: 0.8rem;
+    }
+    .status-expired {
+      background-color: #ff0000 !important;
+      color: white !important;
+    }
+    .status-near-expired {
+        background-color: var(--mint-danger) !important;
+    }
+    .status-warning {
+        background-color: var(--mint-warning) !important;
+    }
+    .status-normal {
+        background-color: var(--mint-success) !important;
+    }
+    .btn-mint {
+        background-color: var(--mint-primary);
+        color: white;
+    }
+    .btn-mint:hover {
+        background-color: var(--mint-dark);
+        color: white;
+    }
+    .action-btn {
+        padding: 4px 8px;
+        margin: 0 2px;
+    }
+    .loading-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.8);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+    }
+    .spinner-container {
+        text-align: center;
+    }
+    .modal-header {
+        background-color: var(--mint-secondary);
+        color: white;
+    }
+    .modal-content {
+        border-radius: 15px;
+    }
+    #notification {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 9999;
+        display: none;
+        min-width: 300px;
+        text-align: center;
+        font-size: 1.2rem;
+        padding: 20px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    .status-badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 10px;
+    }
+    .status-badge {
+        display: flex;
+        align-items: center;
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-size: 0.8rem;
+    }
+    .days-column {
+        white-space: nowrap;
+    }
+    .form-icon {
+        background-color: var(--mint-light);
+        color: var(--mint-dark);
+        border-color: #ced4da;
+    }
+    .form-control:focus {
+        border-color: var(--mint-primary);
+        box-shadow: 0 0 0 0.25rem rgba(77, 214, 165, 0.25);
+    }
+    .table .badge {
+        font-size: 0.7rem;
+        padding: 0.25rem 0.5rem;
+    }
+    @media (max-width: 768px) {
+        .table-responsive { font-size: 0.7rem; }
+        .action-btn { padding: 2px 5px; font-size: 0.7rem; }
+        .days-column { white-space: normal; }
+        .table .badge { font-size: 0.65rem; padding: 0.2rem 0.4rem; }
+        .table .bi { font-size: 0.7rem; }
+        .table th { font-size: 0.7rem; padding: 0.4rem; }
+        .table td { padding: 0.4rem; }
+        .status-badges { gap: 5px; }
+        .status-badge { padding: 3px 6px; font-size: 0.7rem; }
+        .modal-dialog { margin: 0.5rem; }
+        .modal-title { font-size: 1.1rem; }
+        .form-label { font-size: 0.85rem; }
+    }
+    @media (max-width: 576px) {
+        .table-responsive { font-size: 0.65rem; }
+        .action-btn { padding: 1px 4px; font-size: 0.65rem; margin: 0 1px; }
+        .table td, .table th { padding: 0.3rem; }
+        .card-header { padding: 10px 15px; }
+        .card-header h5 { font-size: 1rem; }
+        #addNewItem { font-size: 0.7rem; padding: 0.2rem 0.4rem; }
+    }
     .main-title {
       color: var(--mint-label);
       font-weight: 700 !important;
@@ -352,7 +254,6 @@
     #drug-expiry-list tbody tr:nth-child(even) {
       background-color: rgba(209, 242, 234, 0.25);
     }
-
     .status-red { background-color: rgba(255, 107, 107, 0.13) !important; }
     .status-orange { background-color: rgba(255, 178, 107, 0.13) !important; }
     .status-green { background-color: rgba(107, 255, 170, 0.13) !important; }
@@ -479,9 +380,8 @@
       z-index: 1060;
     }
     .toast { min-width: 220px; }
-    </style>
-    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <!-- JS/CSS CDN -->
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/html5-qrcode"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
@@ -567,7 +467,6 @@
   </div>
 </div>
 
-    <!-- Modal สำหรับดูและแก้ไขข้อมูล -->
     <div class="modal fade" id="medicineModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -639,7 +538,6 @@
         </div>
     </div>
 
-    <!-- Modal ยืนยันการลบ -->
     <div class="modal fade" id="deleteConfirmModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -662,8 +560,8 @@
             </div>
         </div>
     </div>
-    <!-- Emergency Form (copy from your previous code, unchanged) -->
-<form id="emergency-check-form" autocomplete="off" novalidate>
+
+    <form id="emergency-check-form" autocomplete="off" novalidate>
       <div class="mb-4 row g-3">
         <div class="col-md-4">
           <label for="shift" class="form-label"><i class="far fa-clock me-1"></i> เวร</label>
@@ -684,7 +582,6 @@
           <i class="fas fa-qrcode"></i> สแกนคิวอาร์โค้ด
         </button>
       </div>
-      <!-- ชั้นที่ 1 (สแกน QR เท่านั้น) -->
       <div class="section-title"><i class="fas fa-layer-group"></i> ชั้นที่ 1</div>
       <div id="section1" class="row g-3 d-none">
         <div class="col-md-4"><label class="form-label">Adrenaline (1:1000) 10 amp</label><input type="number" min="0" name="adrenaline" required class="form-control"></div>
@@ -699,7 +596,6 @@
         <div class="col-md-6"><label class="form-label">Syringe Disposable ขนาดต่างๆ อย่างละ 3</label><input type="number" min="0" name="syringe" required class="form-control"></div>
         <div class="col-md-6"><label class="form-label">เข็มฉีดยา เบอร์18-24 อย่างละ 3</label><input type="number" min="0" name="needle" required class="form-control"></div>
       </div>
-      <!-- ชั้นที่ 2 -->
       <div class="section-title mt-4"><i class="fas fa-layer-group"></i> ชั้นที่ 2</div>
       <div id="section2" class="row g-3 d-none">
         <div class="col-md-4"><label class="form-label">IV Catheter No. 24, 22, 20, 18 อย่างละ 3</label>
@@ -730,7 +626,6 @@
           <select class="form-select" name="goggles" required><option value="">เลือก</option><option>✔</option><option>✘</option></select>
         </div>
       </div>
-      <!-- ชั้นที่ 3 -->
       <div class="section-title mt-4"><i class="fas fa-layer-group"></i> ชั้นที่ 3</div>
       <div id="section3" class="row g-3 d-none">
         <div class="col-md-4"><label class="form-label">ET-Tube No.7, 7.5, 8.0 อย่างละ 2</label>
@@ -758,7 +653,6 @@
           <input type="number" min="0" name="tube_plaster" required class="form-control">
         </div>
       </div>
-      <!-- ชั้นที่ 4 -->
       <div class="section-title mt-4"><i class="fas fa-layer-group"></i> ชั้นที่ 4</div>
       <div id="section4" class="row g-3 d-none">
         <div class="col-md-4"><label class="form-label">กระดานและปากกา อย่างละ 1</label>
@@ -777,7 +671,6 @@
           <select class="form-select" name="mask" required><option value="">เลือก</option><option>✔</option><option>✘</option></select>
         </div>
       </div>
-      <!-- ชั้นที่ 5 -->
       <div class="section-title mt-4"><i class="fas fa-layer-group"></i> ชั้นที่ 5</div>
       <div id="section5" class="row g-3 d-none">
         <div class="col-md-4"><label class="form-label">Ambu bag + Mask 1 ชุด</label>
@@ -819,138 +712,7 @@
       พัฒนาโดย ทีม IT Nurse กลุ่มการพยาบาล
     </div>
   </div>
-  <!-- Drug CRUD Modals -->
-  <!-- View Details Modal -->
-  <div class="modal fade" id="viewModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header bg-mint" style="background-color: #20c997;">
-          <h5 class="modal-title">รายละเอียดยา/เวชภัณฑ์</h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body" id="viewModalContent"></div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ปิด</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Edit Modal -->
-  <div class="modal fade" id="editModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header bg-mint" style="background-color: #20c997;">
-          <h5 class="modal-title">แก้ไขข้อมูลยา/เวชภัณฑ์</h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form id="editForm">
-            <input type="hidden" id="editRowIndex">
-            <div class="mb-3">
-              <label for="editName" class="form-label">ยา/เวชภัณฑ์</label>
-              <input type="text" class="form-control" id="editName" required>
-            </div>
-            <div class="row mb-3">
-              <div class="col-md-4">
-                <label for="editExpDay" class="form-label">วันที่หมดอายุ</label>
-                <input type="number" class="form-control" id="editExpDay" min="1" max="31" required>
-              </div>
-              <div class="col-md-4">
-                <label for="editExpMonth" class="form-label">เดือนที่หมดอายุ</label>
-                <input type="number" class="form-control" id="editExpMonth" min="1" max="12" required>
-              </div>
-              <div class="col-md-4">
-                <label for="editExpYear" class="form-label">ปี ค.ศ. หมดอายุ</label>
-                <input type="number" class="form-control" id="editExpYear" required>
-              </div>
-            </div>
-            <div class="mb-3">
-              <label for="editNote" class="form-label">หมายเหตุ</label>
-              <textarea class="form-control" id="editNote" rows="3"></textarea>
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ยกเลิก</button>
-          <button type="button" id="saveEditBtn" class="btn btn-mint">บันทึก</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Add New Modal -->
-  <div class="modal fade" id="addModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header bg-mint" style="background-color: #20c997;">
-          <h5 class="modal-title">เพิ่มยา/เวชภัณฑ์ใหม่</h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form id="addForm">
-            <div class="mb-3">
-              <label for="addName" class="form-label">ยา/เวชภัณฑ์</label>
-              <input type="text" class="form-control" id="addName" required>
-            </div>
-            <div class="row mb-3">
-              <div class="col-md-4">
-                <label for="addExpDay" class="form-label">วันที่หมดอายุ</label>
-                <input type="number" class="form-control" id="addExpDay" min="1" max="31" required>
-              </div>
-              <div class="col-md-4">
-                <label for="addExpMonth" class="form-label">เดือนที่หมดอายุ</label>
-                <input type="number" class="form-control" id="addExpMonth" min="1" max="12" required>
-              </div>
-              <div class="col-md-4">
-                <label for="addExpYear" class="form-label">ปี ค.ศ. หมดอายุ</label>
-                <input type="number" class="form-control" id="addExpYear" required>
-              </div>
-            </div>
-            <div class="mb-3">
-              <label for="addNote" class="form-label">หมายเหตุ</label>
-              <textarea class="form-control" id="addNote" rows="3"></textarea>
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ยกเลิก</button>
-          <button type="button" id="saveAddBtn" class="btn btn-mint">บันทึก</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Confirm Delete Modal -->
-  <div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header bg-danger text-white">
-          <h5 class="modal-title">ยืนยันการลบ</h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <p>คุณต้องการลบรายการ <span id="deleteItemName" class="fw-bold"></span> ใช่หรือไม่?</p>
-          <p class="text-muted small">การดำเนินการนี้ไม่สามารถย้อนกลับได้</p>
-        </div>
-        <div class="modal-footer">
-          <input type="hidden" id="deleteRowIndex">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ยกเลิก</button>
-          <button type="button" id="confirmDeleteBtn" class="btn btn-danger">ลบ</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Toast Notifications -->
-  <div class="toast-container">
-    <div id="toast" class="toast align-items-center text-white bg-mint border-0" role="alert" aria-live="assertive" aria-atomic="true">
-      <div class="d-flex">
-        <div class="toast-body">
-          <i id="toastIcon" class="fas fa-check-circle me-2"></i>
-          <span id="toastMessage">บันทึกข้อมูลสำเร็จ</span>
-        </div>
-        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
-      </div>
-    </div>
-
-  <!-- Modal QR -->
+  
   <div id="qr-modal" class="modal fade" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered modal-md">
       <div class="modal-content">
@@ -964,9 +726,22 @@
       </div>
     </div>
   </div>
+
+  <div class="toast-container">
+    <div id="toast" class="toast align-items-center text-white bg-mint border-0" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body">
+          <i id="toastIcon" class="fas fa-check-circle me-2"></i>
+          <span id="toastMessage">บันทึกข้อมูลสำเร็จ</span>
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+    </div>
+  </div>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    // --- LIFF/LINE profile logic (เหมือนเดิม) ---
+    // --- LIFF/LINE profile logic ---
     let profileData = {};
     const scriptUrl = 'https://script.google.com/macros/s/AKfycbx1De4yNN9U7iq7RgzDypUwtTVG7vrNEOUlVB4T2V4PBEsFfmcXF-0Xr-pznbtYDipi_Q/exec';
     const liffId = '1655096741-YPLwoz9w';
@@ -1001,24 +776,19 @@
         // URL ของ Google Apps Script Web App
         const API_URL = 'https://script.google.com/macros/s/AKfycbxRMxbCBeHMZb4nRTU-i8M61vs_M2ch7FjwTRz0vbLwactnhpoll1fSivIRL-sRrHr7/exec';
         
-        // ตัวแปรสำหรับเก็บข้อมูลยาทั้งหมด
         let medicineData = [];
         let currentRowIndex = null;
-        let originalSheetRowIndices = []; // เก็บ index จริงของแถวในชีต
+        let originalSheetRowIndices = []; 
         
-        // Modal instances
         let medicineModal;
         let deleteConfirmModal;
         
         document.addEventListener('DOMContentLoaded', function() {
-            // Initialize Bootstrap modals
             medicineModal = new bootstrap.Modal(document.getElementById('medicineModal'));
             deleteConfirmModal = new bootstrap.Modal(document.getElementById('deleteConfirmModal'));
             
-            // โหลดข้อมูลเมื่อเปิดหน้าเว็บ
             fetchMedicineData();
             
-            // Event listeners
             document.getElementById('refreshData').addEventListener('click', fetchMedicineData);
             document.getElementById('addNewItem').addEventListener('click', showAddNewItemModal);
             document.getElementById('saveChanges').addEventListener('click', saveMedicineData);
@@ -1026,34 +796,25 @@
             document.getElementById('searchInput').addEventListener('input', filterTable);
             document.getElementById('expiryDate').addEventListener('change', calculateDaysUntilExpiry);
             
-            // ตั้งเวลาอัพเดทข้อมูลทุก 6 ชั่วโมง
             setInterval(updateExpiryDates, 6 * 60 * 60 * 1000);
         });
         
-        // ฟังก์ชันดึงข้อมูลจาก Google Sheet
         function fetchMedicineData() {
             showLoading(true);
-            
             fetch(API_URL + '?action=getData')
                 .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
+                    if (!response.ok) throw new Error('Network response was not ok');
                     return response.json();
                 })
                 .then(data => {
                     if (data.success) {
-                        // เก็บข้อมูลที่มีชื่อยาไม่ว่างเท่านั้น
                         medicineData = data.data.filter(item => item[0] && item[0].trim() !== '');
-                        
-                        // เก็บ index จริงของแถวในชีต (แถวแรกคือหัวตาราง ดังนั้น index จริงคือ i+2)
                         originalSheetRowIndices = [];
                         for (let i = 0; i < data.data.length; i++) {
                             if (data.data[i][0] && data.data[i][0].trim() !== '') {
                                 originalSheetRowIndices.push(i + 2);
                             }
                         }
-                        
                         processMedicineData();
                         renderTable();
                         showNotification('ดึงข้อมูลสำเร็จ', 'success');
@@ -1070,75 +831,48 @@
                 });
         }
         
-        // ประมวลผลข้อมูลยา คำนวณวันที่ใกล้หมดอายุและสถานะ
         function processMedicineData() {
             const today = new Date();
-            
             medicineData = medicineData.map(item => {
-                // แปลงวันที่หมดอายุจากรูปแบบ M/D/YYYY เป็น Date object
                 let expiryDateStr = item[1];
                 let expiryDate;
-                
                 if (expiryDateStr) {
-                    // รองรับรูปแบบวันที่หลายแบบ
                     if (typeof expiryDateStr === 'string' && expiryDateStr.includes('/')) {
                         const parts = expiryDateStr.split('/');
-                        // รูปแบบ M/D/YYYY
                         expiryDate = new Date(parseInt(parts[2]), parseInt(parts[0]) - 1, parseInt(parts[1]));
                     } else if (typeof expiryDateStr === 'string' && expiryDateStr.includes('-')) {
-                        // รูปแบบ YYYY-MM-DD
                         expiryDate = new Date(expiryDateStr);
                     } else if (expiryDateStr instanceof Date) {
                         expiryDate = expiryDateStr;
                     } else {
-                        // ถ้าไม่ตรงกับรูปแบบใดๆ ให้ใช้วันที่ปัจจุบัน
                         expiryDate = new Date();
                     }
                 } else {
-                    // ถ้าไม่มีวันที่หมดอายุ ให้ใช้วันที่ปัจจุบัน
                     expiryDate = new Date();
                 }
                 
-                // คำนวณจำนวนวันที่เหลือก่อนหมดอายุ
                 const timeDiff = expiryDate - today;
                 const daysUntilExpiry = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
                 
-                // กำหนดสถานะตามจำนวนวันที่เหลือ
                 let status;
-                if (daysUntilExpiry < 0) {
-                    status = "หมดอายุ ห้ามใช้!!";
-                } else if (daysUntilExpiry < 180) {
-                    status = "ใกล้หมดอายุ";
-                } else if (daysUntilExpiry < 210) {
-                    status = "รีบแลกยาด่วน";
-                } else {
-                    status = "ปกติ";
-                }
+                if (daysUntilExpiry < 0) status = "หมดอายุ ห้ามใช้!!";
+                else if (daysUntilExpiry < 180) status = "ใกล้หมดอายุ";
+                else if (daysUntilExpiry < 210) status = "รีบแลกยาด่วน";
+                else status = "ปกติ";
                 
-                // อัพเดทข้อมูล
                 item[2] = daysUntilExpiry;
                 item[3] = status;
-                
                 return item;
             });
             
-            // เรียงลำดับตามจำนวนวันที่ใกล้หมดอายุ (น้อยไปมาก)
-            // ต้องเรียงลำดับทั้ง medicineData และ originalSheetRowIndices พร้อมกัน
             const combinedData = medicineData.map((item, index) => {
-                return {
-                    data: item,
-                    sheetRowIndex: originalSheetRowIndices[index]
-                };
+                return { data: item, sheetRowIndex: originalSheetRowIndices[index] };
             });
-            
             combinedData.sort((a, b) => a.data[2] - b.data[2]);
-            
-            // แยกข้อมูลกลับ
             medicineData = combinedData.map(item => item.data);
             originalSheetRowIndices = combinedData.map(item => item.sheetRowIndex);
         }
         
-        // แสดงข้อมูลในตาราง
         function renderTable() {
             const tableBody = document.getElementById('medicineTableBody');
             tableBody.innerHTML = '';
@@ -1147,58 +881,34 @@
                 const medicineName = item[0];
                 const daysUntilExpiry = item[2];
                 const status = item[3];
-                
-                // สร้างแถวใหม่
                 const row = document.createElement('tr');
                 
-                // กำหนดคลาสตามสถานะ
-                if (daysUntilExpiry < 0) {
-                    row.classList.add('status-expired');
-                } else if (daysUntilExpiry < 180) {
-                    row.classList.add('status-near-expired');
-                } else if (daysUntilExpiry < 210) {
-                    row.classList.add('status-warning');
-                } else {
-                    row.classList.add('status-normal');
-                }
+                if (daysUntilExpiry < 0) row.classList.add('status-expired');
+                else if (daysUntilExpiry < 180) row.classList.add('status-near-expired');
+                else if (daysUntilExpiry < 210) row.classList.add('status-warning');
+                else row.classList.add('status-normal');
                 
-                // สร้าง HTML สำหรับแถว
                 row.innerHTML = `
                     <td>${medicineName}</td>
                     <td class="days-column">${daysUntilExpiry} วัน</td>
+                    <td><span class="badge ${getBadgeClass(status)} p-2">${getStatusIcon(status)} ${status}</span></td>
                     <td>
-                        <span class="badge ${getBadgeClass(status)} p-2">
-                            ${getStatusIcon(status)} ${status}
-                        </span>
-                    </td>
-                    <td>
-                        <button class="btn btn-sm btn-outline-primary action-btn view-btn" data-index="${index}">
-                            <i class="bi bi-eye"></i>
-                        </button>
-                        <button class="btn btn-sm btn-outline-danger action-btn delete-btn" data-index="${index}">
-                            <i class="bi bi-trash"></i>
-                        </button>
+                        <button class="btn btn-sm btn-outline-primary action-btn view-btn" data-index="${index}"><i class="bi bi-eye"></i></button>
+                        <button class="btn btn-sm btn-outline-danger action-btn delete-btn" data-index="${index}"><i class="bi bi-trash"></i></button>
                     </td>
                 `;
-                
                 tableBody.appendChild(row);
             });
-            
-            // เพิ่ม event listeners สำหรับปุ่มในตาราง
             addTableButtonListeners();
         }
         
-        // เพิ่ม event listeners สำหรับปุ่มในตาราง
         function addTableButtonListeners() {
-            // ปุ่มดูรายละเอียด
             document.querySelectorAll('.view-btn').forEach(button => {
                 button.addEventListener('click', function() {
                     const index = parseInt(this.getAttribute('data-index'));
                     showMedicineDetails(index);
                 });
             });
-            
-            // ปุ่มลบ
             document.querySelectorAll('.delete-btn').forEach(button => {
                 button.addEventListener('click', function() {
                     const index = parseInt(this.getAttribute('data-index'));
@@ -1207,38 +917,25 @@
             });
         }
         
-        // คำนวณจำนวนวันที่ใกล้หมดอายุแบบเรียลไทม์
         function calculateDaysUntilExpiry() {
             const expiryDateInput = document.getElementById('expiryDate').value;
             if (!expiryDateInput) return;
-            
             const expiryDate = new Date(expiryDateInput);
             const today = new Date();
-            
-            // คำนวณจำนวนวันที่เหลือ
             const timeDiff = expiryDate - today;
             const daysUntilExpiry = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
             
-            // กำหนดสถานะ
             let status;
-            if (daysUntilExpiry < 0) {
-                status = "หมดอายุ ห้ามใช้!!";
-            } else if (daysUntilExpiry < 180) {
-                status = "ใกล้หมดอายุ";
-            } else if (daysUntilExpiry < 210) {
-                status = "รีบแลกยาด่วน";
-            } else {
-                status = "ปกติ";
-            }
+            if (daysUntilExpiry < 0) status = "หมดอายุ ห้ามใช้!!";
+            else if (daysUntilExpiry < 180) status = "ใกล้หมดอายุ";
+            else if (daysUntilExpiry < 210) status = "รีบแลกยาด่วน";
+            else status = "ปกติ";
             
-            // อัพเดทค่าในฟอร์ม
             document.getElementById('daysUntilExpiry').value = daysUntilExpiry;
             document.getElementById('status').value = status;
             
-            // เปลี่ยนสีของช่องสถานะตามสถานะ
             const statusInput = document.getElementById('status');
             statusInput.className = 'form-control';
-            
             if (daysUntilExpiry < 0) {
                 statusInput.style.backgroundColor = 'var(--mint-danger-dark)';
                 statusInput.style.color = 'white';
@@ -1254,26 +951,20 @@
             }
         }
         
-        // แสดง Modal รายละเอียดยา
         function showMedicineDetails(index) {
             const item = medicineData[index];
             currentRowIndex = index;
-            
             document.getElementById('rowIndex').value = index;
             document.getElementById('sheetRowIndex').value = originalSheetRowIndices[index];
             document.getElementById('medicineName').value = item[0];
             
-            // แปลงวันที่หมดอายุเป็นรูปแบบ YYYY-MM-DD สำหรับ input type="date"
             let expiryDateStr = item[1];
             let expiryDate;
-            
             if (expiryDateStr) {
                 if (typeof expiryDateStr === 'string' && expiryDateStr.includes('/')) {
                     const parts = expiryDateStr.split('/');
-                    // รูปแบบ M/D/YYYY
                     expiryDate = new Date(parseInt(parts[2]), parseInt(parts[0]) - 1, parseInt(parts[1]));
                 } else if (typeof expiryDateStr === 'string' && expiryDateStr.includes('-')) {
-                    // รูปแบบ YYYY-MM-DD
                     expiryDate = new Date(expiryDateStr);
                 } else if (expiryDateStr instanceof Date) {
                     expiryDate = expiryDateStr;
@@ -1283,18 +974,14 @@
             } else {
                 expiryDate = new Date();
             }
-            
             const formattedDate = expiryDate.toISOString().split('T')[0];
             document.getElementById('expiryDate').value = formattedDate;
-            
             document.getElementById('daysUntilExpiry').value = item[2];
             document.getElementById('status').value = item[3];
             document.getElementById('notes').value = item[4] || '';
             
-            // เปลี่ยนสีของช่องสถานะตามสถานะ
             const statusInput = document.getElementById('status');
             statusInput.className = 'form-control';
-            
             if (item[2] < 0) {
                 statusInput.style.backgroundColor = 'var(--mint-danger-dark)';
                 statusInput.style.color = 'white';
@@ -1313,10 +1000,8 @@
             medicineModal.show();
         }
         
-        // แสดง Modal เพิ่มรายการใหม่
         function showAddNewItemModal() {
             currentRowIndex = null;
-            
             document.getElementById('rowIndex').value = '';
             document.getElementById('sheetRowIndex').value = '';
             document.getElementById('medicineName').value = '';
@@ -1325,7 +1010,6 @@
             document.getElementById('status').value = '';
             document.getElementById('notes').value = '';
             
-            // รีเซ็ตสีของช่องสถานะ
             const statusInput = document.getElementById('status');
             statusInput.style.backgroundColor = '';
             statusInput.style.color = '';
@@ -1334,16 +1018,13 @@
             medicineModal.show();
         }
         
-        // แสดง Modal ยืนยันการลบ
         function showDeleteConfirmation(index) {
             const item = medicineData[index];
             currentRowIndex = index;
-            
             document.getElementById('deleteItemName').textContent = item[0];
             deleteConfirmModal.show();
         }
         
-        // บันทึกข้อมูลยา (เพิ่มใหม่หรือแก้ไข)
         function saveMedicineData() {
             const medicineName = document.getElementById('medicineName').value;
             const expiryDate = document.getElementById('expiryDate').value;
@@ -1355,74 +1036,43 @@
                 showNotification('กรุณากรอกข้อมูลให้ครบถ้วน', 'warning');
                 return;
             }
-            
             showLoading(true);
-            
-            // แปลงวันที่เป็นรูปแบบ M/D/YYYY
             const dateObj = new Date(expiryDate);
             const formattedDate = `${dateObj.getMonth() + 1}/${dateObj.getDate()}/${dateObj.getFullYear()}`;
             
-            // สร้างข้อมูลที่จะส่งไป
             const data = {
                 action: currentRowIndex !== null ? 'updateData' : 'addData',
                 rowIndex: currentRowIndex !== null ? originalSheetRowIndices[currentRowIndex] : null,
-                data: [
-                    medicineName,
-                    formattedDate,
-                    daysUntilExpiry,
-                    status,
-                    notes
-                ]
+                data: [medicineName, formattedDate, daysUntilExpiry, status, notes]
             };
             
-            // ส่งข้อมูลไปยัง Google Apps Script
             fetch(API_URL, {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'text/plain', // เปลี่ยนเป็น text/plain เพื่อหลีกเลี่ยงปัญหา CORS
-                },
+                headers: { 'Content-Type': 'text/plain' },
                 body: JSON.stringify(data)
             })
             .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.text(); // ใช้ text() แทน json() เพื่อรองรับการตอบกลับที่อาจไม่ใช่ JSON
+                if (!response.ok) throw new Error('Network response was not ok');
+                return response.text();
             })
             .then(responseText => {
                 let result;
-                try {
-                    result = JSON.parse(responseText);
-                } catch (e) {
-                    // ถ้าไม่สามารถแปลงเป็น JSON ได้ ให้สร้าง object ขึ้นมาเอง
-                    result = { success: true, message: 'บันทึกข้อมูลสำเร็จ' };
-                }
-                
+                try { result = JSON.parse(responseText); } catch (e) { result = { success: true, message: 'บันทึกข้อมูลสำเร็จ' }; }
                 medicineModal.hide();
-                fetchMedicineData(); // โหลดข้อมูลใหม่
+                fetchMedicineData();
                 showNotification(currentRowIndex !== null ? 'อัพเดทข้อมูลสำเร็จ' : 'เพิ่มข้อมูลสำเร็จ', 'success');
             })
             .catch(error => {
                 console.error('Error saving data:', error);
-                
-                // ทดลองบันทึกข้อมูลแบบ JSONP
                 tryJSONPRequest(data);
             })
-            .finally(() => {
-                showLoading(false);
-            });
+            .finally(() => { showLoading(false); });
         }
         
-        // ทดลองใช้ JSONP เพื่อหลีกเลี่ยงปัญหา CORS
         function tryJSONPRequest(data) {
-            // สร้าง URL สำหรับ JSONP request
             const jsonpUrl = `${API_URL}?action=${data.action}&data=${encodeURIComponent(JSON.stringify(data.data))}`;
-            
-            // สร้าง script element
             const script = document.createElement('script');
             script.src = jsonpUrl;
-            
-            // กำหนด callback function
             window.handleJSONPResponse = function(response) {
                 if (response && response.success) {
                     medicineModal.hide();
@@ -1431,15 +1081,9 @@
                 } else {
                     showNotification('ไม่สามารถบันทึกข้อมูลได้ กรุณาลองใหม่อีกครั้ง', 'danger');
                 }
-                
-                // ลบ script element
                 document.body.removeChild(script);
             };
-            
-            // เพิ่ม script เข้าไปใน DOM
             document.body.appendChild(script);
-            
-            // ตั้งเวลาลบ script หลังจาก 10 วินาที (ป้องกันกรณีไม่ได้รับการตอบกลับ)
             setTimeout(() => {
                 if (document.body.contains(script)) {
                     document.body.removeChild(script);
@@ -1448,109 +1092,69 @@
             }, 10000);
         }
         
-        // ลบรายการยา
         function deleteMedicineItem() {
             if (currentRowIndex === null) return;
-            
             showLoading(true);
-            
-            const data = {
-                action: 'deleteData',
-                rowIndex: originalSheetRowIndices[currentRowIndex]
-            };
+            const data = { action: 'deleteData', rowIndex: originalSheetRowIndices[currentRowIndex] };
             
             fetch(API_URL, {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'text/plain', // เปลี่ยนเป็น text/plain เพื่อหลีกเลี่ยงปัญหา CORS
-                },
+                headers: { 'Content-Type': 'text/plain' },
                 body: JSON.stringify(data)
             })
             .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
+                if (!response.ok) throw new Error('Network response was not ok');
                 return response.text();
             })
             .then(responseText => {
                 let result;
-                try {
-                    result = JSON.parse(responseText);
-                } catch (e) {
-                    result = { success: true, message: 'ลบข้อมูลสำเร็จ' };
-                }
-                
+                try { result = JSON.parse(responseText); } catch (e) { result = { success: true, message: 'ลบข้อมูลสำเร็จ' }; }
                 deleteConfirmModal.hide();
-                fetchMedicineData(); // โหลดข้อมูลใหม่
+                fetchMedicineData();
                 showNotification('ลบข้อมูลสำเร็จ', 'success');
             })
             .catch(error => {
                 console.error('Error deleting data:', error);
                 showNotification('ไม่สามารถลบข้อมูลได้ กรุณาลองใหม่อีกครั้ง', 'danger');
             })
-            .finally(() => {
-                showLoading(false);
-            });
+            .finally(() => { showLoading(false); });
         }
         
-        // อัพเดทวันที่ใกล้หมดอายุและสถานะ
         function updateExpiryDates() {
             showLoading(true);
-            
-            const data = {
-                action: 'updateExpiryDates'
-            };
-            
+            const data = { action: 'updateExpiryDates' };
             fetch(API_URL, {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'text/plain',
-                },
+                headers: { 'Content-Type': 'text/plain' },
                 body: JSON.stringify(data)
             })
             .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
+                if (!response.ok) throw new Error('Network response was not ok');
                 return response.text();
             })
             .then(responseText => {
                 let result;
-                try {
-                    result = JSON.parse(responseText);
-                } catch (e) {
-                    result = { success: true, message: 'อัพเดทวันที่หมดอายุสำเร็จ' };
-                }
-                
-                fetchMedicineData(); // โหลดข้อมูลใหม่
+                try { result = JSON.parse(responseText); } catch (e) { result = { success: true, message: 'อัพเดทวันที่หมดอายุสำเร็จ' }; }
+                fetchMedicineData();
                 showNotification('อัพเดทวันที่หมดอายุสำเร็จ', 'success');
             })
             .catch(error => {
                 console.error('Error updating expiry dates:', error);
                 showNotification('ไม่สามารถอัพเดทวันที่หมดอายุได้', 'danger');
             })
-            .finally(() => {
-                showLoading(false);
-            });
+            .finally(() => { showLoading(false); });
         }
         
-        // ค้นหาข้อมูลในตาราง
         function filterTable() {
             const searchText = document.getElementById('searchInput').value.toLowerCase();
             const rows = document.getElementById('medicineTableBody').getElementsByTagName('tr');
-            
             for (let i = 0; i < rows.length; i++) {
                 const medicineName = rows[i].getElementsByTagName('td')[0].textContent.toLowerCase();
-                
-                if (medicineName.includes(searchText)) {
-                    rows[i].style.display = '';
-                } else {
-                    rows[i].style.display = 'none';
-                }
+                if (medicineName.includes(searchText)) rows[i].style.display = '';
+                else rows[i].style.display = 'none';
             }
         }
         
-        // Helper functions
         function getBadgeClass(status) {
             if (status === "หมดอายุ ห้ามใช้!!") return "bg-danger";
             if (status === "ใกล้หมดอายุ") return "bg-warning text-dark";
@@ -1565,23 +1169,17 @@
             return '<i class="bi bi-check-circle"></i>';
         }
         
-        function showLoading(show) {
-            document.getElementById('loadingOverlay').style.display = show ? 'flex' : 'none';
-        }
+        function showLoading(show) { document.getElementById('loadingOverlay').style.display = show ? 'flex' : 'none'; }
         
         function showNotification(message, type) {
             const notification = document.getElementById('notification');
             const notificationMessage = document.getElementById('notificationMessage');
-            
             notification.className = 'alert alert-' + type + ' alert-dismissible fade show';
             notificationMessage.textContent = message;
             notification.style.display = 'block';
-            
-            setTimeout(() => {
-                notification.style.display = 'none';
-            }, 3000);
+            setTimeout(() => { notification.style.display = 'none'; }, 3000);
         }
-// ฟังก์ชันอื่นๆ saveEditedDrug, addNewDrug, deleteDrug (เหมือนโค้ดแคนวา)
+
     // Update recordId
     document.getElementById('shift').addEventListener('change', function(){
       const shift = this.value;
@@ -1590,41 +1188,52 @@
       document.getElementById('recordId').value = shift ? `${dayStr}_${shift}` : '';
     });
 
-    // === QR Scan logic: SINGLE permission, section1 only ===
-    let qrModal = new bootstrap.Modal(document.getElementById('qr-modal'), { backdrop: 'static' });
+    // === QR Scan logic: รองรับ iOS & Android แบบเสถียร ===
+    let qrModalElement = document.getElementById('qr-modal');
+    let qrModal = new bootstrap.Modal(qrModalElement, { backdrop: 'static' });
     let qrInstance = null;
-    let cameraId = null;
-    let cameraPromise = null;
     let unlockedSection1 = false;
     let isScanning = false;
 
-    document.getElementById('scan-section1-btn').addEventListener('click', function() {
-      if (isScanning) return;
-      $('#qr-modal').modal('show');
-    });
-
+    // ฟังก์ชันดึงกล้องหลังแบบดักทาง iPhone
     async function getCameraId() {
-      if (!cameraPromise) {
-        cameraPromise = Html5Qrcode.getCameras();
-      }
-      const devices = await cameraPromise;
+      const devices = await Html5Qrcode.getCameras();
       if (!devices || devices.length === 0) throw new Error('ไม่พบกล้อง');
-      let back = devices.find(d => /back|environment/i.test(d.label));
-      cameraId = (back && back.id) ? back.id : devices[0].id;
-      return cameraId;
+
+      // 1. ลองหาจากชื่อ (Android มักจะมีคำว่า back หรือ environment)
+      let back = devices.find(d => /back|environment|หลัง/i.test(d.label));
+      if (back && back.id) return back.id;
+
+      // 2. กรณี iPhone มักจะซ่อนชื่อ (label ว่างเปล่า) 
+      // กล้องหน้ามักจะเป็น index 0 ส่วนกล้องหลังมักจะเป็นลำดับสุดท้าย
+      if (devices.length > 1) {
+        return devices[devices.length - 1].id;
+      }
+
+      // 3. ถ้ามีกล้องเดียว
+      return devices[0].id;
     }
 
-    $('#qr-modal').on('shown.bs.modal', async function () {
+    document.getElementById('scan-section1-btn').addEventListener('click', function() {
+      if (isScanning) return;
+      qrModal.show(); 
+    });
+
+    qrModalElement.addEventListener('shown.bs.modal', async function () {
       if (isScanning) return;
       isScanning = true;
+
       try {
         if (!qrInstance) {
           qrInstance = new Html5Qrcode("qr-reader");
         }
+
+        // ดึง ID ของกล้องหลังมาใช้งานตรงๆ
         const devId = await getCameraId();
+
         await qrInstance.start(
-          { deviceId: { exact: devId } },
-          { fps: 10, qrbox: 200 },
+          devId, 
+          { fps: 10, qrbox: 250 },
           (decodedText, decodedResult) => {
             if (decodedText === 'A094B184C3548') {
               unlockedSection1 = true;
@@ -1640,28 +1249,33 @@
                   allowOutsideClick: false,
                   allowEscapeKey: false,
                 });
-                setTimeout(() => $('#qr-modal').modal('hide'), 950);
+                setTimeout(() => qrModal.hide(), 950);
                 isScanning = false;
               });
             } else {
               Swal.fire('QR ไม่ถูกต้อง', 'กรุณาสแกน QR Code ที่ถูกต้อง', 'error');
             }
           },
-          (errorMessage) => {}
+          (errorMessage) => { 
+             // ไม่ต้องทำอะไร ปล่อยให้มันสแกนต่อไป
+          }
         );
       } catch (err) {
-        Swal.fire('ไม่พบกล้อง หรือไม่ได้อนุญาต', '', 'error');
-        $('#qr-modal').modal('hide');
+        console.error(err);
+        Swal.fire('ข้อผิดพลาด', 'ไม่พบกล้องหรือไม่ได้รับอนุญาต', 'error');
+        qrModal.hide();
         isScanning = false;
       }
     });
 
-    $('#qr-modal').on('hidden.bs.modal', function () {
-      if (qrInstance) qrInstance.stop().catch(()=>{});
+    qrModalElement.addEventListener('hidden.bs.modal', function () {
+      if (qrInstance && isScanning) {
+        qrInstance.stop().catch(()=>{});
+      }
       isScanning = false;
     });
 
-    // Signature pad (เหมือนเดิม)
+    // Signature pad
     const canvas = document.getElementById('signaturePad');
     const ctx = canvas.getContext('2d');
     let drawing = false;
@@ -1699,7 +1313,7 @@
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
-    // ฟังก์ชันบันทึก (เหมือนเดิม)
+    // ฟังก์ชันบันทึก
     function sendFlex(profile, data) {
       let flex = {
         type: 'flex',
@@ -1717,17 +1331,8 @@
                   {
                     type: "box",
                     layout: "vertical",
-                    contents: [
-                      {
-                        type: "image",
-                        url: profile.pictureUrl,
-                        aspectMode: "cover",
-                        size: "full"
-                      }
-                    ],
-                    cornerRadius: "100px",
-                    width: "72px",
-                    height: "72px"
+                    contents: [{ type: "image", url: profile.pictureUrl, aspectMode: "cover", size: "full" }],
+                    cornerRadius: "100px", width: "72px", height: "72px"
                   },
                   {
                     type: "box",
@@ -1735,88 +1340,43 @@
                     contents: [
                       {
                         type: "text",
-                        contents: [
-                          {
-                            type: "span",
-                            text: " " + data.inspector,
-                            weight: "bold",
-                            color: "#000000"
-                          }
-                        ],
-                        size: "sm",
-                        wrap: true
+                        contents: [{ type: "span", text: " " + data.inspector, weight: "bold", color: "#000000" }],
+                        size: "sm", wrap: true
                       },
                       {
                         type: "box",
                         layout: "vertical",
-                        contents: [
-                          {
-                            type: "text",
-                            text: "รายงาน Emergency Car 🚑",
-                            size: "sm",
-                            color: "#24d4a3",
-                            weight: "bold",
-                            action: {
-                              type: "uri",
-                              label: "รายงาน",
-                              uri: dashboardUrl
-                            }
-                          }
-                        ]
+                        contents: [{
+                            type: "text", text: "รายงาน Emergency Car 🚑", size: "sm", color: "#24d4a3", weight: "bold",
+                            action: { type: "uri", label: "รายงาน", uri: dashboardUrl }
+                        }]
                       }
                     ]
                   }
                 ],
-                spacing: "xl",
-                paddingAll: "20px",
-                backgroundColor: "#eafff6"
+                spacing: "xl", paddingAll: "20px", backgroundColor: "#eafff6"
               },
               {
                 type: "box",
                 layout: "vertical",
                 contents: [
-                  {
-                    type: "text",
-                    text: "📆 เวร: " + (data.shift ? data.shift : ""),
-                    size: "sm",
-                    weight: "bold",
-                    color: "#24d4a3"
-                  },
-                  {
-                    type: "text",
-                    text: "ID: " + (data.recordId || ""),
-                    size: "xs"
-                  }
+                  { type: "text", text: "📆 เวร: " + (data.shift ? data.shift : ""), size: "sm", weight: "bold", color: "#24d4a3" },
+                  { type: "text", text: "ID: " + (data.recordId || ""), size: "xs" }
                 ],
-                spacing: "xs",
-                paddingAll: "14px"
+                spacing: "xs", paddingAll: "14px"
               }
             ],
             paddingAll: "0px"
           },
           footer: {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
-              {
-                "type": "text",
-                "text": "ตรวจสอบความพร้อมรถ Emergency",
-                "position": "relative",
-                "weight": "bold",
-                "align": "center",
-                "action": {
-                  "type": "uri",
-                  "label": "action",
-                  "uri": liffAppUrl
-                }
-              }
-            ]
+            type: "box",
+            layout: "vertical",
+            contents: [{
+                type: "text", text: "ตรวจสอบความพร้อมรถ Emergency", position: "relative", weight: "bold", align: "center",
+                action: { type: "uri", label: "action", uri: liffAppUrl }
+            }]
           },
-          styles: {
-            body: {
-              backgroundColor: "#eafff6"
-            }
-          }
+          styles: { body: { backgroundColor: "#eafff6" } }
         }
       };
       return flex;
@@ -1827,11 +1387,7 @@
       let form = this;
       let valid = form.checkValidity();
       if (!valid) {
-        Swal.fire({
-          icon: 'warning',
-          title: 'กรุณาลงข้อมูลให้ครบถ้วนก่อน',
-          confirmButtonText: 'ตกลง'
-        });
+        Swal.fire({ icon: 'warning', title: 'กรุณาลงข้อมูลให้ครบถ้วนก่อน', confirmButtonText: 'ตกลง' });
         form.classList.add('was-validated');
         return;
       }
@@ -1854,42 +1410,21 @@
             $.LoadingOverlay('hide');
             if(res && res.status === "success") {
               Swal.fire({
-                icon: 'success',
-                title: 'บันทึกข้อมูลสำเร็จ!',
-                showConfirmButton: false,
-                timer: 1200,
-                allowOutsideClick: false,
-                allowEscapeKey: false
+                icon: 'success', title: 'บันทึกข้อมูลสำเร็จ!', showConfirmButton: false, timer: 1200, allowOutsideClick: false, allowEscapeKey: false
               });
               setTimeout(() => {
                 if (window.liff && liff.sendMessages) {
                   let flex = sendFlex(profile, formData);
-                  liff.sendMessages([flex]).then(() => {
-                    liff.closeWindow();
-                  }).catch(() => {
-                    liff.closeWindow();
-                  });
+                  liff.sendMessages([flex]).then(() => { liff.closeWindow(); }).catch(() => { liff.closeWindow(); });
                 }
               }, 1200);
             } else {
-              Swal.fire({
-                icon: 'error',
-                title: 'เกิดข้อผิดพลาดในการบันทึกข้อมูล',
-                text: res.message || 'โปรดลองอีกครั้ง',
-                allowOutsideClick: false,
-                confirmButtonText: 'ตกลง'
-              });
+              Swal.fire({ icon: 'error', title: 'เกิดข้อผิดพลาดในการบันทึกข้อมูล', text: res.message || 'โปรดลองอีกครั้ง', allowOutsideClick: false, confirmButtonText: 'ตกลง' });
             }
           },
           error: function () {
             $.LoadingOverlay('hide');
-            Swal.fire({
-              icon: 'error',
-              title: 'ไม่สามารถเชื่อมต่อกับเซิร์ฟเวอร์ได้',
-              text: 'โปรดตรวจสอบการเชื่อมต่ออินเทอร์เน็ตหรือลองอีกครั้ง',
-              allowOutsideClick: false,
-              confirmButtonText: 'ตกลง'
-            });
+            Swal.fire({ icon: 'error', title: 'ไม่สามารถเชื่อมต่อกับเซิร์ฟเวอร์ได้', text: 'โปรดตรวจสอบการเชื่อมต่ออินเทอร์เน็ตหรือลองอีกครั้ง', allowOutsideClick: false, confirmButtonText: 'ตกลง' });
           }
         });
       };
@@ -1913,6 +1448,5 @@
       }
     });
   </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9573d9d7d01410e2',t:'MTc1MTE4MzYxNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
 </body>
 </html>
