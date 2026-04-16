@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ระบบตรวจสอบความพร้อมรถ Emergency & ตารางยาและเวชภัณฑ์</title>
+  <!-- Google Fonts & Bootstrap & Icon -->
   <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
@@ -210,7 +211,7 @@
             white-space: nowrap;
         }
         
-        /* สไตล์สำหรับ input groupในฟอร์ม */
+        /* สไตล์สำหรับ input group ในฟอร์ม */
         .form-icon {
             background-color: var(--mint-light);
             color: var(--mint-dark);
@@ -480,6 +481,7 @@
     .toast { min-width: 220px; }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <!-- JS/CSS CDN -->
   <script src="https://unpkg.com/html5-qrcode"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
@@ -565,6 +567,7 @@
   </div>
 </div>
 
+    <!-- Modal สำหรับดูและแก้ไขข้อมูล -->
     <div class="modal fade" id="medicineModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -636,6 +639,7 @@
         </div>
     </div>
 
+    <!-- Modal ยืนยันการลบ -->
     <div class="modal fade" id="deleteConfirmModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -658,7 +662,8 @@
             </div>
         </div>
     </div>
-    <form id="emergency-check-form" autocomplete="off" novalidate>
+    <!-- Emergency Form (copy from your previous code, unchanged) -->
+<form id="emergency-check-form" autocomplete="off" novalidate>
       <div class="mb-4 row g-3">
         <div class="col-md-4">
           <label for="shift" class="form-label"><i class="far fa-clock me-1"></i> เวร</label>
@@ -679,6 +684,7 @@
           <i class="fas fa-qrcode"></i> สแกนคิวอาร์โค้ด
         </button>
       </div>
+      <!-- ชั้นที่ 1 (สแกน QR เท่านั้น) -->
       <div class="section-title"><i class="fas fa-layer-group"></i> ชั้นที่ 1</div>
       <div id="section1" class="row g-3 d-none">
         <div class="col-md-4"><label class="form-label">Adrenaline (1:1000) 10 amp</label><input type="number" min="0" name="adrenaline" required class="form-control"></div>
@@ -693,6 +699,7 @@
         <div class="col-md-6"><label class="form-label">Syringe Disposable ขนาดต่างๆ อย่างละ 3</label><input type="number" min="0" name="syringe" required class="form-control"></div>
         <div class="col-md-6"><label class="form-label">เข็มฉีดยา เบอร์18-24 อย่างละ 3</label><input type="number" min="0" name="needle" required class="form-control"></div>
       </div>
+      <!-- ชั้นที่ 2 -->
       <div class="section-title mt-4"><i class="fas fa-layer-group"></i> ชั้นที่ 2</div>
       <div id="section2" class="row g-3 d-none">
         <div class="col-md-4"><label class="form-label">IV Catheter No. 24, 22, 20, 18 อย่างละ 3</label>
@@ -723,6 +730,7 @@
           <select class="form-select" name="goggles" required><option value="">เลือก</option><option>✔</option><option>✘</option></select>
         </div>
       </div>
+      <!-- ชั้นที่ 3 -->
       <div class="section-title mt-4"><i class="fas fa-layer-group"></i> ชั้นที่ 3</div>
       <div id="section3" class="row g-3 d-none">
         <div class="col-md-4"><label class="form-label">ET-Tube No.7, 7.5, 8.0 อย่างละ 2</label>
@@ -750,6 +758,7 @@
           <input type="number" min="0" name="tube_plaster" required class="form-control">
         </div>
       </div>
+      <!-- ชั้นที่ 4 -->
       <div class="section-title mt-4"><i class="fas fa-layer-group"></i> ชั้นที่ 4</div>
       <div id="section4" class="row g-3 d-none">
         <div class="col-md-4"><label class="form-label">กระดานและปากกา อย่างละ 1</label>
@@ -768,6 +777,7 @@
           <select class="form-select" name="mask" required><option value="">เลือก</option><option>✔</option><option>✘</option></select>
         </div>
       </div>
+      <!-- ชั้นที่ 5 -->
       <div class="section-title mt-4"><i class="fas fa-layer-group"></i> ชั้นที่ 5</div>
       <div id="section5" class="row g-3 d-none">
         <div class="col-md-4"><label class="form-label">Ambu bag + Mask 1 ชุด</label>
@@ -809,6 +819,8 @@
       พัฒนาโดย ทีม IT Nurse กลุ่มการพยาบาล
     </div>
   </div>
+  <!-- Drug CRUD Modals -->
+  <!-- View Details Modal -->
   <div class="modal fade" id="viewModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -823,6 +835,7 @@
       </div>
     </div>
   </div>
+  <!-- Edit Modal -->
   <div class="modal fade" id="editModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -864,6 +877,7 @@
       </div>
     </div>
   </div>
+  <!-- Add New Modal -->
   <div class="modal fade" id="addModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -904,6 +918,7 @@
       </div>
     </div>
   </div>
+  <!-- Confirm Delete Modal -->
   <div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -923,6 +938,7 @@
       </div>
     </div>
   </div>
+  <!-- Toast Notifications -->
   <div class="toast-container">
     <div id="toast" class="toast align-items-center text-white bg-mint border-0" role="alert" aria-live="assertive" aria-atomic="true">
       <div class="d-flex">
@@ -933,8 +949,8 @@
         <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
       </div>
     </div>
-  </div>
 
+  <!-- Modal QR -->
   <div id="qr-modal" class="modal fade" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered modal-md">
       <div class="modal-content">
@@ -950,7 +966,7 @@
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    // --- LIFF/LINE profile logic ---
+    // --- LIFF/LINE profile logic (เหมือนเดิม) ---
     let profileData = {};
     const scriptUrl = 'https://script.google.com/macros/s/AKfycbx1De4yNN9U7iq7RgzDypUwtTVG7vrNEOUlVB4T2V4PBEsFfmcXF-0Xr-pznbtYDipi_Q/exec';
     const liffId = '1655096741-YPLwoz9w';
@@ -1510,4 +1526,393 @@
                 showNotification('อัพเดทวันที่หมดอายุสำเร็จ', 'success');
             })
             .catch(error => {
-                console.error('Error
+                console.error('Error updating expiry dates:', error);
+                showNotification('ไม่สามารถอัพเดทวันที่หมดอายุได้', 'danger');
+            })
+            .finally(() => {
+                showLoading(false);
+            });
+        }
+        
+        // ค้นหาข้อมูลในตาราง
+        function filterTable() {
+            const searchText = document.getElementById('searchInput').value.toLowerCase();
+            const rows = document.getElementById('medicineTableBody').getElementsByTagName('tr');
+            
+            for (let i = 0; i < rows.length; i++) {
+                const medicineName = rows[i].getElementsByTagName('td')[0].textContent.toLowerCase();
+                
+                if (medicineName.includes(searchText)) {
+                    rows[i].style.display = '';
+                } else {
+                    rows[i].style.display = 'none';
+                }
+            }
+        }
+        
+        // Helper functions
+        function getBadgeClass(status) {
+            if (status === "หมดอายุ ห้ามใช้!!") return "bg-danger";
+            if (status === "ใกล้หมดอายุ") return "bg-warning text-dark";
+            if (status === "รีบแลกยาด่วน") return "bg-warning text-dark";
+            return "bg-success";
+        }
+        
+        function getStatusIcon(status) {
+            if (status === "หมดอายุ ห้ามใช้!!") return '<i class="bi bi-x-circle-fill"></i>';
+            if (status === "ใกล้หมดอายุ") return '<i class="bi bi-exclamation-circle"></i>';
+            if (status === "รีบแลกยาด่วน") return '<i class="bi bi-clock"></i>';
+            return '<i class="bi bi-check-circle"></i>';
+        }
+        
+        function showLoading(show) {
+            document.getElementById('loadingOverlay').style.display = show ? 'flex' : 'none';
+        }
+        
+        function showNotification(message, type) {
+            const notification = document.getElementById('notification');
+            const notificationMessage = document.getElementById('notificationMessage');
+            
+            notification.className = 'alert alert-' + type + ' alert-dismissible fade show';
+            notificationMessage.textContent = message;
+            notification.style.display = 'block';
+            
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 3000);
+        }
+// ฟังก์ชันอื่นๆ saveEditedDrug, addNewDrug, deleteDrug (เหมือนโค้ดแคนวา)
+    // Update recordId
+    document.getElementById('shift').addEventListener('change', function(){
+      const shift = this.value;
+      const today = new Date();
+      const dayStr = today.toLocaleDateString('th-TH', {year: 'numeric', month: '2-digit', day: '2-digit'});
+      document.getElementById('recordId').value = shift ? `${dayStr}_${shift}` : '';
+    });
+
+    // === QR Scan logic: SINGLE permission, section1 only ===
+    let qrModal = new bootstrap.Modal(document.getElementById('qr-modal'), { backdrop: 'static' });
+    let qrInstance = null;
+    let cameraId = null;
+    let cameraPromise = null;
+    let unlockedSection1 = false;
+    let isScanning = false;
+
+    document.getElementById('scan-section1-btn').addEventListener('click', function() {
+      if (isScanning) return;
+      $('#qr-modal').modal('show');
+    });
+
+    async function getCameraId() {
+      if (!cameraPromise) {
+        cameraPromise = Html5Qrcode.getCameras();
+      }
+      const devices = await cameraPromise;
+      if (!devices || devices.length === 0) throw new Error('ไม่พบกล้อง');
+      let back = devices.find(d => /back|environment/i.test(d.label));
+      cameraId = (back && back.id) ? back.id : devices[0].id;
+      return cameraId;
+    }
+
+    $('#qr-modal').on('shown.bs.modal', async function () {
+      if (isScanning) return;
+      isScanning = true;
+      try {
+        if (!qrInstance) {
+          qrInstance = new Html5Qrcode("qr-reader");
+        }
+        const devId = await getCameraId();
+        await qrInstance.start(
+          { deviceId: { exact: devId } },
+          { fps: 10, qrbox: 200 },
+          (decodedText, decodedResult) => {
+            if (decodedText === 'A094B184C3548') {
+              unlockedSection1 = true;
+              qrInstance.stop().then(() => {
+                ['section1','section2','section3','section4','section5'].forEach(id=>{
+                  document.getElementById(id).classList.remove('d-none');
+                });
+                Swal.fire({
+                  icon: 'success',
+                  title: 'QR code ถูกต้อง!',
+                  timer: 900,
+                  showConfirmButton: false,
+                  allowOutsideClick: false,
+                  allowEscapeKey: false,
+                });
+                setTimeout(() => $('#qr-modal').modal('hide'), 950);
+                isScanning = false;
+              });
+            } else {
+              Swal.fire('QR ไม่ถูกต้อง', 'กรุณาสแกน QR Code ที่ถูกต้อง', 'error');
+            }
+          },
+          (errorMessage) => {}
+        );
+      } catch (err) {
+        Swal.fire('ไม่พบกล้อง หรือไม่ได้อนุญาต', '', 'error');
+        $('#qr-modal').modal('hide');
+        isScanning = false;
+      }
+    });
+
+    $('#qr-modal').on('hidden.bs.modal', function () {
+      if (qrInstance) qrInstance.stop().catch(()=>{});
+      isScanning = false;
+    });
+
+    // Signature pad (เหมือนเดิม)
+    const canvas = document.getElementById('signaturePad');
+    const ctx = canvas.getContext('2d');
+    let drawing = false;
+    ctx.lineWidth = 2;
+    ctx.lineCap = 'round';
+    ctx.strokeStyle = "#24d4a3";
+    canvas.addEventListener('mousedown', e => { drawing = true; ctx.beginPath(); });
+    canvas.addEventListener('mouseup', e => { drawing = false; });
+    canvas.addEventListener('mousemove', draw);
+    canvas.addEventListener('touchstart', e => { drawing = true; ctx.beginPath(); });
+    canvas.addEventListener('touchend', e => { drawing = false; });
+    canvas.addEventListener('touchmove', function(e) {
+      if (!drawing) return;
+      const rect = canvas.getBoundingClientRect();
+      const touch = e.touches[0];
+      ctx.lineTo(touch.clientX - rect.left, touch.clientY - rect.top);
+      ctx.stroke();
+      e.preventDefault();
+    }, {passive:false});
+    function draw(e) {
+      if (!drawing) return;
+      const rect = canvas.getBoundingClientRect();
+      ctx.lineTo(e.clientX - rect.left, e.clientY - rect.top);
+      ctx.stroke();
+    }
+    document.getElementById('clear-signature').onclick = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    };
+    function resizeCanvas() {
+      const ratio = Math.max(window.devicePixelRatio || 1, 1);
+      canvas.width = canvas.offsetWidth * ratio;
+      canvas.height = canvas.offsetHeight * ratio;
+      ctx.scale(ratio, ratio);
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    // ฟังก์ชันบันทึก (เหมือนเดิม)
+    function sendFlex(profile, data) {
+      let flex = {
+        type: 'flex',
+        altText: 'บันทึกข้อมูล Emergency Car',
+        contents: {
+          type: "bubble",
+          body: {
+            type: "box",
+            layout: "vertical",
+            contents: [
+              {
+                type: "box",
+                layout: "horizontal",
+                contents: [
+                  {
+                    type: "box",
+                    layout: "vertical",
+                    contents: [
+                      {
+                        type: "image",
+                        url: profile.pictureUrl,
+                        aspectMode: "cover",
+                        size: "full"
+                      }
+                    ],
+                    cornerRadius: "100px",
+                    width: "72px",
+                    height: "72px"
+                  },
+                  {
+                    type: "box",
+                    layout: "vertical",
+                    contents: [
+                      {
+                        type: "text",
+                        contents: [
+                          {
+                            type: "span",
+                            text: " " + data.inspector,
+                            weight: "bold",
+                            color: "#000000"
+                          }
+                        ],
+                        size: "sm",
+                        wrap: true
+                      },
+                      {
+                        type: "box",
+                        layout: "vertical",
+                        contents: [
+                          {
+                            type: "text",
+                            text: "รายงาน Emergency Car 🚑",
+                            size: "sm",
+                            color: "#24d4a3",
+                            weight: "bold",
+                            action: {
+                              type: "uri",
+                              label: "รายงาน",
+                              uri: dashboardUrl
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                spacing: "xl",
+                paddingAll: "20px",
+                backgroundColor: "#eafff6"
+              },
+              {
+                type: "box",
+                layout: "vertical",
+                contents: [
+                  {
+                    type: "text",
+                    text: "📆 เวร: " + (data.shift ? data.shift : ""),
+                    size: "sm",
+                    weight: "bold",
+                    color: "#24d4a3"
+                  },
+                  {
+                    type: "text",
+                    text: "ID: " + (data.recordId || ""),
+                    size: "xs"
+                  }
+                ],
+                spacing: "xs",
+                paddingAll: "14px"
+              }
+            ],
+            paddingAll: "0px"
+          },
+          footer: {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "ตรวจสอบความพร้อมรถ Emergency",
+                "position": "relative",
+                "weight": "bold",
+                "align": "center",
+                "action": {
+                  "type": "uri",
+                  "label": "action",
+                  "uri": liffAppUrl
+                }
+              }
+            ]
+          },
+          styles: {
+            body: {
+              backgroundColor: "#eafff6"
+            }
+          }
+        }
+      };
+      return flex;
+    }
+
+    $('#emergency-check-form').on('submit', function(e) {
+      e.preventDefault();
+      let form = this;
+      let valid = form.checkValidity();
+      if (!valid) {
+        Swal.fire({
+          icon: 'warning',
+          title: 'กรุณาลงข้อมูลให้ครบถ้วนก่อน',
+          confirmButtonText: 'ตกลง'
+        });
+        form.classList.add('was-validated');
+        return;
+      }
+      $.LoadingOverlay('show');
+      let formData = {};
+      $(this).serializeArray().forEach(item => { formData[item.name] = item.value; });
+      formData['signature'] = canvas.toDataURL();
+      formData.timestamp = new Date().toISOString();
+
+      const submitData = (profile) => {
+        const uid = profile && liff.getDecodedIDToken ? liff.getDecodedIDToken().sub : 'test_user_id';
+        formData.opt = 'savedata';
+        formData.uid = uid;
+        $.ajax({
+          method: "POST",
+          url: scriptUrl,
+          data: formData,
+          dataType: 'json',
+          success: function (res) {
+            $.LoadingOverlay('hide');
+            if(res && res.status === "success") {
+              Swal.fire({
+                icon: 'success',
+                title: 'บันทึกข้อมูลสำเร็จ!',
+                showConfirmButton: false,
+                timer: 1200,
+                allowOutsideClick: false,
+                allowEscapeKey: false
+              });
+              setTimeout(() => {
+                if (window.liff && liff.sendMessages) {
+                  let flex = sendFlex(profile, formData);
+                  liff.sendMessages([flex]).then(() => {
+                    liff.closeWindow();
+                  }).catch(() => {
+                    liff.closeWindow();
+                  });
+                }
+              }, 1200);
+            } else {
+              Swal.fire({
+                icon: 'error',
+                title: 'เกิดข้อผิดพลาดในการบันทึกข้อมูล',
+                text: res.message || 'โปรดลองอีกครั้ง',
+                allowOutsideClick: false,
+                confirmButtonText: 'ตกลง'
+              });
+            }
+          },
+          error: function () {
+            $.LoadingOverlay('hide');
+            Swal.fire({
+              icon: 'error',
+              title: 'ไม่สามารถเชื่อมต่อกับเซิร์ฟเวอร์ได้',
+              text: 'โปรดตรวจสอบการเชื่อมต่ออินเทอร์เน็ตหรือลองอีกครั้ง',
+              allowOutsideClick: false,
+              confirmButtonText: 'ตกลง'
+            });
+          }
+        });
+      };
+
+      if(window.liff && liff.getProfile) {
+        liff.init({
+          liffId: liffId,
+          withLoginOnExternalBrowser: true,
+          scope: ["profile","openid"]
+        }).then(() => {
+          liff.getProfile().then(function(profile){
+            submitData(profile);
+          }).catch(() => {
+            submitData(null);
+          });
+        }).catch(() => {
+          submitData(null);
+        });
+      } else {
+        submitData(null);
+      }
+    });
+  </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9573d9d7d01410e2',t:'MTc1MTE4MzYxNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+</body>
+</html>
